@@ -9,12 +9,17 @@ const WeatherApp = () => {
   const [city, setCity] = useState("");
   const [weather, setWeather] = useState(null);
   const [loading, setLoading] = useState(false);
+  const [hydrated, setHydrated] = useState(false);
+
+  useEffect(() => {
+    setHydrated(true);
+  }, []);
 
   const fetchWeather = async () => {
     if (!city) return;
     setLoading(true);
     try {
-      const apiKey = process.env.API_KEY; // Replace with your API key
+      const apiKey = process.env.NEXT_PUBLIC_API_KEY; // Replace with your API key
       const response = await fetch(
         `https://api.openweathermap.org/data/2.5/weather?q=${city},AU&units=metric&appid=${apiKey}`
       );
