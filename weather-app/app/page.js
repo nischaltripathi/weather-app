@@ -14,7 +14,7 @@ const WeatherApp = () => {
     if (!city) return;
     setLoading(true);
     try {
-      const apiKey = "d08cf50d6b3affc975f05c2470b65577"; // Replace with your API key
+      const apiKey = process.env.API_KEY; // Replace with your API key
       const response = await fetch(
         `https://api.openweathermap.org/data/2.5/weather?q=${city},AU&units=metric&appid=${apiKey}`
       );
