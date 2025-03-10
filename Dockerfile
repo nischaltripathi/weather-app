@@ -35,10 +35,10 @@ COPY --from=builder /app/node_modules ./node_modules
 COPY --from=builder /app/.env .env
 
 # Set environment variables
-ENV NODE_ENV=production
+ENV NODE_ENV=DEV
 
 # Expose port 3000
 EXPOSE 3000
 
 # Start the application
-CMD ["npm", "run", "start"]
+CMD ["npm", "start"]
